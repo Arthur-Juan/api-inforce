@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use \App\Models\Coin;
-use Illuminate\Support\Facades\DB;
 
 class ExchangeController extends Controller
 {
@@ -16,46 +15,78 @@ class ExchangeController extends Controller
         $value = $request['value'];
 
         if($base === null || $to === null || $value === null){
-            return "URL mal formatada";
+            $ret = [
+                'status'=>'error',
+                'data'=>'URL mal formatada'
+            ];
+
+            return $ret;
         }
+
+        if($base === $to){
+            $ret = [
+                'status'=>'ERROR',
+                'data'=>'As moedas não podem ser as mesmas'
+            ];
+            return $ret;
+
+        }
+
         $base = Coin::all()->where('abbreviation', $base);
         $to = Coin::all()->where('abbreviation', $to);
 
 
         foreach ($base as $item) {
+
             $baseCoin = $item;
+
         }
         foreach ($to as $item) {
-            $toCoin = $item;
+            if($to){
+                $toCoin = $item;
+            }
+
         }
+
+
+
 
         $result = $this->calc($baseCoin, $toCoin, $value);
 
         $result = number_format($result,2);
 
-        return $result;
+        $ret = [
+          'status'=>'success',
+          'data'=>[
+              "base"=>$baseCoin->abbreviation,
+              "to"=>$toCoin->abbreviation,
+              "value"=>$result .' ' .$toCoin->abbreviation
+          ]
+        ];
+
+        return $ret;
 
     }
 
     public function calc($base, $to, $value = null){
 
 
-            $aux = $base->DolVal;
+        $aux = $base->DolVal;
+        if($value !== null){
+         $aux *= $value;
+        }
             $result = ($aux/$to->DolVal);
-            if($value !== null){
-                $result *= $value;
-            }
+
 
             return $result;
 
 
     }
 
-    /*
-     * REAL PRA EURO
-     * 1 REAL = 0.20 DOL (AUX)
-     * $RESULT = AUX/EURO->DOLVAL
-     */
+    public function validade($base, $to, $value){
+
+    }
+
 }
 
 
