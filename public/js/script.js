@@ -15,7 +15,6 @@ $('#form1').submit(function (e){
         url: domain+'/api/converter/?base='+u_base+'&to='+u_to+'&value='+u_value,
         method: 'GET',
     }).done(function (result){
-        //monta a resposta na tela
         if(result.status === 'success') {
             $('.result').text('Resultado: ' + result['data'].value);
         }
@@ -24,8 +23,6 @@ $('#form1').submit(function (e){
         }
     });
 
-    /**
-     *  <p>Resultado: </p>
-     */
+
 
 })

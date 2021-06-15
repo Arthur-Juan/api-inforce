@@ -4,18 +4,13 @@
 @section('content')
 
 
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <form class="d-flex">
-                <h3>Inforce câmbio de moedas</h3>
-            </form>
-        </div>
-    </nav>
 
-    <hr>
+
 
     <div class="container">
-    <div class="jumbotron-fluid p-5 mb-4 bg-white rounded-3 px-3">
+        <div class="jumbotron-fluid p-5 mb-4 bg-white rounded-3 px-3">
+        <h3>Inforce câmbio de moedas</h3>
+            <hr>
         <h5>Selecione as moedas</h5>
         <form id="form1">
 

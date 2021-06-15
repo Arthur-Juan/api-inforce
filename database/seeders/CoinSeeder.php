@@ -28,7 +28,7 @@ class CoinSeeder extends Seeder
         DB::table('coins')->insert([
             'name' => 'Euro',
             'abbreviation' => 'EUR',
-            'DolVal' => 0.83
+            'DolVal' => 1.21
         ]);
 
 

@@ -25,4 +25,4 @@ Quando as dependências estiverem baixadas, copie o .env-example para um arquivo
 Será necessário criar um banco de dados, e editar as propriedades do .env para o seu ambiente, como seu login, senha e nome do banco.
 Com o banco de dados criado, execute `php artisan migrate` para crirar as tabelas  e `php artisan db:seed` para popular as tabelas.
 
-Com tudo pronto, execute `php artisan serve` e projeto está pronto para ser usado!
+Com tudo pronto, execute `php artisan serve` e o projeto está pronto para ser usado!
