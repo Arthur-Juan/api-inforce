@@ -61,7 +61,7 @@ class ExchangeRepository
         }
 
         //confere se o valor é negativo
-        if($value <= 0 ){
+        if($value < 0 ){
             return [
                 'status'=>'error',
                 'data'=>[

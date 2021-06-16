@@ -15,7 +15,7 @@ class CoinSeeder extends Seeder
     public function run()
     {
         DB::table('coins')->insert([
-            'name' => 'Dolar',
+            'name' => 'Dólar Americano',
             'abbreviation' => 'USD',
             'DolVal' => 1
         ]);
