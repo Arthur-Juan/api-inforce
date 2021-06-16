@@ -11,7 +11,7 @@ Seu uso é bem simples, basta dar um GET na URL: ```http://localhost:8000/api/co
 <hr>
 
 ## Assíncrono:
-As requisições são feitas pro backend de forma assíncrona, onde os resultados vem em tempo real sem que a página recarregue.
+As requisições são feitas para o backend de forma assíncrona, onde os resultados vem em tempo real sem que a página recarregue.
 
 As requisições são feitas utilizando ajax, o código se encontra em `/public/js/script.js`
 
